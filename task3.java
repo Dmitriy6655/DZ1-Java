@@ -1,17 +1,17 @@
 public class task3 {
     public static void main(String[] args) {
         System.out.println("Математические операции калькулятора:");
-        System.out.println("/ - деление; " + '\n' + "* - умножение;" + '\n' + 
+        System.out.println("/ - деление; " + '\n' + "* - умножение;" + '\n' +
                 "^ - возведение в целочисленную степень;"
                 + '\n' + "+ сложение;" + '\n' + "- вычитание.");
         System.out.println("Введите пример:");
         String str = System.console().readLine().replace(" ", "").toLowerCase();
 
-        searchIndexSign(str);
+        calculation(str);
 
     }
 
-    public static double[] calculat(String strInput, int d) {
+    public static double[] stringСonversion(String strInput, int d) {
 
         int end = d;
 
@@ -52,12 +52,11 @@ public class task3 {
         return array;
     }
 
-    
-    public static void searchIndexSign(String str) {
+    public static void calculation(String str) {
 
-        //поиск индекса определенного знака
+        // поиск индекса определенного знака
         int end = str.indexOf('/');
-        int end1 = str.indexOf('*'); 
+        int end1 = str.indexOf('*');
         int end2 = str.indexOf('^');
         int end3 = str.indexOf('+');
         int end4 = str.indexOf('-');
@@ -65,29 +64,29 @@ public class task3 {
         double arr[] = new double[2];
 
         if (end >= 0) {
-            arr = calculat(str, end);
+            arr = stringСonversion(str, end);
             System.out.println(arr[0] / arr[1]);
 
         } else if (end1 >= 0) {
-            arr = calculat(str, end1);
+            arr = stringСonversion(str, end1);
             System.out.println(arr[0] * arr[1]);
 
         } else if (end2 >= 0) {
 
-            arr = calculat(str, end2);
+            arr = stringСonversion(str, end2);
             System.out.println(Math.pow(arr[0], arr[1]));
 
         } else if (end3 >= 0) {
 
-            arr = calculat(str, end3);
+            arr = stringСonversion(str, end3);
             System.out.println(arr[0] + arr[1]);
 
         } else if (end4 >= 0) {
 
-            arr = calculat(str, end4);
+            arr = stringСonversion(str, end4);
             System.out.println(arr[0] - arr[1]);
         }
-        
+
     }
 
 }
